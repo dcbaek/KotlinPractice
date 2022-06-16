@@ -6,19 +6,21 @@ fun main() {
 
     val name = "Joyce"
     val lastName = "Hong"
-    println("my name is ${name + lastName} I'm 23")
+//    println("my name is ${name + lastName} I'm 23")
+//
+//    println("is thsi true? ${1==0}")
+//
+//    println("this is 2\$a")
 
-    println("is thsi true? ${1==0}")
-
-    println("this is 2\$a")
-
-    hellWorld()
+    //hellWorld()
 
     //println(add(4,5))
 
     checkNum(1)
 
     forAndWhile()
+
+    nullcheck()
 }
 
 //4. 조건식
@@ -34,23 +36,23 @@ fun maxBy(a : Int, b : Int) : Int {
 fun maxBy2(a : Int, b : Int) =if(a>b) a else b
 
 fun checkNum(score : Int) {
-    when(score) {
-        0 -> println("this is 0")
-        1 -> println("this is 1")
-        2,3 -> println("this is 2 or 3")
-    }
-
-    var b : Int = when(score){
-        1-> 1
-        2-> 2
-        else -> 3
-    }
-
-    when(score){
-        in 90..100 -> println("You are genius")
-        in 10..80 -> println("not bad")
-        else -> println("pokay")
-    }
+//    when(score) {
+//        0 -> println("this is 0")
+//        1 -> println("this is 1")
+//        2,3 -> println("this is 2 or 3")
+//    }
+//
+//    var b : Int = when(score){
+//        1-> 1
+//        2-> 2
+//        else -> 3
+//    }
+//
+//    when(score){
+//        in 90..100 -> println("You are genius")
+//        in 10..80 -> println("not bad")
+//        else -> println("pokay")
+//    }
 }
 
 // Expresstion vs Statement
@@ -83,30 +85,62 @@ fun forAndWhile() {
     val students = arrayListOf("joyce", "james", "jenny", "jennifer")
 
     for (name in students){
-        println("${name}")
-    }
+        //println("${name}")
+
 
     for ((index, name) in students.withIndex()){
-        println("${index+1}번째 학생: ${name}")
+      //println("${index+1}번째 학생: ${name}")
     }
 
     var sum : Int = 0
     for ( i in 1..10) { //downTo, until
         sum += i
     }
-    println(sum)
+   // println(sum)
 
     var index = 0
     while(index < 10){
-        println("current index : ${index}")
+       // println("current index : ${index}")
         index++
+    }
+}
+}
+//7. Nullable / NonNull
+
+fun nullcheck(){
+    //NPE :Null pointer Exception
+
+    var name : String = "joyce"
+
+    var nullName : String? = null
+
+    var nameInUpperCase = name.toUpperCase()
+
+    var nullNameInUpperCase = nullName?.toUpperCase()
+
+    // ?:
+
+    val lastName : String? = null
+
+    val fullName = name+" " + (lastName?: "NO lastName")
+
+    println(fullName)
+}
+
+fun ignoreNulls(str : String?) {
+    val mNotNull : String = str!!
+    val upper = mNotNull.toUpperCase()
+
+    val email : String?= "joycehong@nana.vom"
+    email?.let{
+        println("my email is ${email}")
     }
 }
 
 // 1. 함수
 
 fun hellWorld() : Unit {
-    println("Hello World!")
+    //println("Hello World!")
 }
 
 fun add( a: Int, b : Int) : Int {
@@ -128,4 +162,4 @@ fun hi() {
     var d = 100
 
     var name = "joyce"
-}
+    }
